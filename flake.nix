@@ -1,31 +1,51 @@
-# SPDX-FileCopyrightText: 2023 Steffen Vogel <post@steffenvogel.de>
+# SPDX-FileCopyrightText: 2024 Steffen Vogel <post@steffenvogel.de>
 # SPDX-License-Identifier: Apache-2.0
 {
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
-  outputs = {
-    self,
-    nixpkgs,
-    flake-utils,
-  }:
-    flake-utils.lib.eachDefaultSystem
-    (
-      system: let
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
         pkgs = nixpkgs.legacyPackages.${system};
-      in {
+        frameworks = pkgs.darwin.apple_sdk.frameworks;
+      in
+      {
         devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            pkg-config
-            clang
-            go_1_22
-            golangci-lint
-            reuse
-          ];
+          buildInputs =
+            with pkgs;
+            [
+              pkg-config
+              clang
+              golangci-lint
+              go
+              reuse
+            ]
+            ++ lib.optionals pkgs.stdenv.isLinux [
+              pcsclite
+              pcsctools
+            ]
+            ++ lib.optionals pkgs.stdenv.isDarwin [ frameworks.PCSC ];
+
+          shellHook =
+            if pkgs.stdenv.isDarwin then
+              ''
+                export CGO_LDFLAGS="-F${frameworks.PCSC}/Library/Frameworks";
+              ''
+            else
+              "";
+
+          hardeningDisable = [ "fortify" ];
         };
 
-        formatter = nixpkgs.nixfmt-rfc-style;
+        formatter = pkgs.nixfmt-rfc-style;
       }
     );
 }
