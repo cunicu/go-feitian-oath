@@ -4,7 +4,7 @@ SPDX-PackageSupplier = "Steffen Vogel <post@steffenvogel.de>"
 SPDX-PackageDownloadLocation = "https://github.com/cunicu/go-feitian-oath"
 
 [[annotations]]
-path = ["go.sum", "flake.lock", ".renovaterc.json"]
+path = ["go.sum", "flake.lock", ".renovaterc.json", "mockdata/**"]
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2024 Steffen Vogel <post@steffenvogel.de>"
 SPDX-License-Identifier = "Apache-2.0"
