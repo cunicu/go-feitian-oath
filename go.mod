@@ -1,6 +1,6 @@
-// SPDX-FileCopyrightText: 2023 Steffen Vogel <post@steffenvogel.de>
+// SPDX-FileCopyrightText: 2024-2025 Steffen Vogel <post@steffenvogel.de>
 // SPDX-License-Identifier: Apache-2.0
 
-module cunicu.li/skeleton
+module cunicu.li/go-feitian-oath
 
 go 1.22.2
