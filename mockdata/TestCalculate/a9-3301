@@ -1,0 +1,24 @@
+mockfile
+
+file.version v2
+file.created 2024-05-17T20:19:50+02:00
+file.creator stv0g@cam-vm
+
+meta attr.channel.type usb
+meta attr.channel.usb.addr 17
+meta attr.channel.usb.bus 2
+meta attr.ifd.serial 
+meta attr.ifd.version 51.1.0
+meta attr.name.friendly FT U2F CCID KB [CCID] 00 00
+meta attr.name.system FT U2F CCID KB [CCID] 00 00
+meta attr.name.vendor FT
+meta status.active_protocol t1,any
+meta status.atr 3bdd18ff8191fe1fc3006646530803003671df00008068
+meta status.reader FT U2F CCID KB [CCID] 00 00
+meta status.state present,powered,negotiable
+
+#     start      end method
+on    0.000    0.000 BeginTransaction
+on    0.297    0.297 Transmit 00a4040009d1560001328326010100 5903010002510851b87e158361b5729000
+on  255.555  255.555 Transmit 0009000022531601200631323334353637383930313233343536373839305104746573745c015c 9000
+on 1956.663 1956.663 Transmit 00a20000115408000000000368c99751057465737436 55150624237d5e7a2c1e7f5442b324598150e4b280c3219000

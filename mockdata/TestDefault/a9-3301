@@ -1,0 +1,12 @@
+mockfile
+
+file.version v2
+file.created 2025-04-14T20:48:40+02:00
+file.creator stv0g@cam-vm
+
+
+#     start      end method
+on    0.000    0.000 BeginTransaction
+on    0.048    0.048 Transmit 00a4040009d1560001328326010100 59030100025108ca3417b386dd00df9000
+on  227.494  227.494 Transmit 00070000 9000
+on 1912.574 1912.574 Transmit 00e60000 9000
