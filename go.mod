@@ -6,7 +6,7 @@ module cunicu.li/go-feitian-oath
 go 1.24.1
 
 require (
-	cunicu.li/go-iso7816 v0.8.5
+	cunicu.li/go-iso7816 v0.8.6
 	github.com/stretchr/testify v1.10.0
 )
 
